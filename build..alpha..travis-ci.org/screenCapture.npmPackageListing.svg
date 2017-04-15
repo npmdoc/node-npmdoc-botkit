@@ -1,0 +1,57 @@
+<svg height="862" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="862" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">  0.  2017-04-15 19:56:13 +0000   632909 bytes  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-15 19:56:13 +0000     2111 bytes  CONTRIBUTING.md</tspan>
+<tspan x="10" y="58">  2.  2017-04-15 19:56:13 +0000       95 bytes  Dockerfile</tspan>
+<tspan x="10" y="74">  3.  2017-04-15 19:56:13 +0000     1081 bytes  LICENSE.md</tspan>
+<tspan x="10" y="90">  4.  2017-04-15 19:56:13 +0000     6252 bytes  botframework_bot.js</tspan>
+<tspan x="10" y="106">  5.  2017-04-15 19:56:13 +0000    12904 bytes  changelog.md</tspan>
+<tspan x="10" y="122">  6.  2017-04-15 19:56:13 +0000     7124 bytes  console_bot.js</tspan>
+<tspan x="10" y="138">  7.  2017-04-15 19:56:13 +0000      751 bytes  docs/hosting-your-own-bot.md</tspan>
+<tspan x="10" y="154">  8.  2017-04-15 19:56:13 +0000     4029 bytes  docs/slack-events-api.md</tspan>
+<tspan x="10" y="170">  9.  2017-04-15 19:56:13 +0000   133631 bytes  docs/studio_script_author.png</tspan>
+<tspan x="10" y="186"> 10.  2017-04-15 19:56:13 +0000     2390 bytes  examples/convo_bot.js</tspan>
+<tspan x="10" y="202"> 11.  2017-04-15 19:56:13 +0000     2861 bytes  examples/demo_bot.js</tspan>
+<tspan x="10" y="218"> 12.  2017-04-15 19:56:13 +0000       80 bytes  examples/incoming_webhooks.js</tspan>
+<tspan x="10" y="234"> 13.  2017-04-15 19:56:13 +0000     6292 bytes  examples/middleware_example.js</tspan>
+<tspan x="10" y="250"> 14.  2017-04-15 19:56:13 +0000     5426 bytes  examples/sentiment_analysis.js</tspan>
+<tspan x="10" y="266"> 15.  2017-04-15 19:56:13 +0000       65 bytes  examples/slack_app.js</tspan>
+<tspan x="10" y="282"> 16.  2017-04-15 19:56:13 +0000     4184 bytes  examples/slackbutton_bot.js</tspan>
+<tspan x="10" y="298"> 17.  2017-04-15 19:56:13 +0000     9501 bytes  examples/slackbutton_bot_interactivemsg.js</tspan>
+<tspan x="10" y="314"> 18.  2017-04-15 19:56:13 +0000     3635 bytes  examples/slackbutton_incomingwebhooks.js</tspan>
+<tspan x="10" y="330"> 19.  2017-04-15 19:56:13 +0000     2315 bytes  examples/slackbutton_slashcommand.js</tspan>
+<tspan x="10" y="346"> 20.  2017-04-15 19:56:13 +0000      360 bytes  examples/team_outgoingwebhook.js</tspan>
+<tspan x="10" y="362"> 21.  2017-04-15 19:56:13 +0000      723 bytes  examples/team_slashcommand.js</tspan>
+<tspan x="10" y="378"> 22.  2017-04-15 19:56:13 +0000    16365 bytes  facebook_bot.js</tspan>
+<tspan x="10" y="394"> 23.  2017-04-15 19:56:13 +0000     6196 bytes  lib/BotFramework.js</tspan>
+<tspan x="10" y="410"> 24.  2017-04-15 19:56:13 +0000      611 bytes  lib/Botkit.js</tspan>
+<tspan x="10" y="426"> 25.  2017-04-15 19:56:13 +0000    16991 bytes  lib/CiscoSparkbot.js</tspan>
+<tspan x="10" y="442"> 26.  2017-04-15 19:56:13 +0000     2417 bytes  lib/ConsoleBot.js</tspan>
+<tspan x="10" y="458"> 27.  2017-04-15 19:56:13 +0000    42221 bytes  lib/CoreBot.js</tspan>
+<tspan x="10" y="474"> 28.  2017-04-15 19:56:13 +0000    25125 bytes  lib/Facebook.js</tspan>
+<tspan x="10" y="490"> 29.  2017-04-15 19:56:13 +0000    32419 bytes  lib/SlackBot.js</tspan>
+<tspan x="10" y="506"> 30.  2017-04-15 19:56:13 +0000     7292 bytes  lib/Slack_web_api.js</tspan>
+<tspan x="10" y="522"> 31.  2017-04-15 19:56:13 +0000    24112 bytes  lib/Slackbot_worker.js</tspan>
+<tspan x="10" y="538"> 32.  2017-04-15 19:56:13 +0000    23638 bytes  lib/Studio.js</tspan>
+<tspan x="10" y="554"> 33.  2017-04-15 19:56:13 +0000    14730 bytes  lib/TwilioIPMBot.js</tspan>
+<tspan x="10" y="570"> 34.  2017-04-15 19:56:13 +0000     1436 bytes  lib/console_logger.js</tspan>
+<tspan x="10" y="586"> 35.  2017-04-15 19:56:13 +0000     2058 bytes  lib/middleware/slack_authentication.js</tspan>
+<tspan x="10" y="602"> 36.  2017-04-15 19:56:13 +0000     2696 bytes  lib/storage/simple_storage.js</tspan>
+<tspan x="10" y="618"> 37.  2017-04-15 19:56:13 +0000     2484 bytes  lib/storage/storage_test.js</tspan>
+<tspan x="10" y="634"> 38.  2017-04-15 19:56:13 +0000     2930 bytes  package.json</tspan>
+<tspan x="10" y="650"> 39.  2017-04-15 19:56:13 +0000    12808 bytes  readme-botframework.md</tspan>
+<tspan x="10" y="666"> 40.  2017-04-15 19:56:13 +0000    10388 bytes  readme-ciscospark.md</tspan>
+<tspan x="10" y="682"> 41.  2017-04-15 19:56:13 +0000    18891 bytes  readme-facebook.md</tspan>
+<tspan x="10" y="698"> 42.  2017-04-15 19:56:13 +0000    17585 bytes  readme-middlewares.md</tspan>
+<tspan x="10" y="714"> 43.  2017-04-15 19:56:13 +0000    35153 bytes  readme-slack.md</tspan>
+<tspan x="10" y="730"> 44.  2017-04-15 19:56:13 +0000    17400 bytes  readme-studio.md</tspan>
+<tspan x="10" y="746"> 45.  2017-04-15 19:56:13 +0000    13955 bytes  readme-twilioipm.md</tspan>
+<tspan x="10" y="762"> 46.  2017-04-15 19:56:13 +0000    55006 bytes  readme.md</tspan>
+<tspan x="10" y="778"> 47.  2017-04-15 19:56:13 +0000     7802 bytes  slack_bot.js</tspan>
+<tspan x="10" y="794"> 48.  2017-04-15 19:56:13 +0000     3540 bytes  spark_bot.js</tspan>
+<tspan x="10" y="810"> 49.  2017-04-15 19:56:13 +0000     4588 bytes  tests/Facebook.js</tspan>
+<tspan x="10" y="826"> 50.  2017-04-15 19:56:13 +0000     2650 bytes  tests/Slack_web_api.js</tspan>
+<tspan x="10" y="842"> 51.  2017-04-15 19:56:13 +0000     3612 bytes  twilio_ipm_bot.js</tspan>
+</text>
+</svg>
