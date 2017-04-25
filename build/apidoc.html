@@ -373,7 +373,22 @@ var bot = controller.spawn({
 
     return text_botkit;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    -&#x3e; http://howdy.ai/botkit
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+var Botkit = require(&#x27;./lib/Botkit.js&#x27;);
+var os = require(&#x27;os&#x27;);
+
+var controller = Botkit.<span class="apidocCodeKeywordSpan">consolebot</span>({
+    debug: false,
+});
+
+var bot = controller.spawn();
+
+controller.hears([&#x27;hello&#x27;, &#x27;hi&#x27;], &#x27;message_received&#x27;, function(bot, message) {
+...</pre></li>
     </ul>
 
 

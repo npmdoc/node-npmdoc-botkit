@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://botkit.ai"
-
-    >botkit (v0.5.2)</a>
+    <a href="https://botkit.ai">botkit (v0.5.2)</a>
 </h1>
 <h4>Building blocks for Building Bots</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.botkit">module botkit</a><ol>
 
@@ -167,17 +160,17 @@
 
             if (!message || !message.address) {
                 if (cb) {
-                    cb(new Error(&#x27;Outgoing message requires a valid address...&#x27;));
+                    cb(new Error('Outgoing message requires a valid address...'));
                 }
                 return;
             }
 
-            // Copy message minus user &#x26; channel fields
+            // Copy message minus user &amp; channel fields
             var bf_message = {};
             for (var key in message) {
                 switch (key) {
-                    case &#x27;user&#x27;:
-                    case &#x27;channel&#x27;:
+                    case 'user':
+                    case 'channel':
                         // ignore
                         break;
                     default:
@@ -186,7 +179,7 @@
                 }
             }
             if (!bf_message.type) {
-                bf_message.type = &#x27;message&#x27;;
+                bf_message.type = 'message';
             }
 
             // Ensure the message address has a valid conversation id.
@@ -209,7 +202,7 @@
         bot.reply = function(src, resp, cb) {
             var msg = {};
 
-            if (typeof(resp) == &#x27;string&#x27;) {
+            if (typeof(resp) == 'string') {
                 msg.text = resp;
             } else {
                 msg = resp;
@@ -223,15 +216,15 @@
         };
 
         bot.findConversation = function(message, cb) {
-            botkit.debug(&#x27;CUSTOM FIND CONVO&#x27;, message.user, message.channel);
-            for (var t = 0; t &#x3c; botkit.tasks.length; t++) {
-                for (var c = 0; c &#x3c; botkit.tasks[t].convos.length; c++) {
+            botkit.debug('CUSTOM FIND CONVO', message.user, message.channel);
+            for (var t = 0; t &lt; botkit.tasks.length; t++) {
+                for (var c = 0; c &lt; botkit.tasks[t].convos.length; c++) {
                     if (
-                        botkit.tasks[t].convos[c].isActive() &#x26;&#x26;
-                        botkit.tasks[t].convos[c].source_message.user == message.user &#x26;&#x26;
+                        botkit.tasks[t].convos[c].isActive() &amp;&amp;
+                        botkit.tasks[t].convos[c].source_message.user == message.user &amp;&amp;
                         botkit.tasks[t].convos[c].source_message.channel == message.channel
                     ) {
-                        botkit.debug(&#x27;FOUND EXISTING CONVO!&#x27;);
+                        botkit.debug('FOUND EXISTING CONVO!');
                         cb(botkit.tasks[t].convos[c]);
                         return;
                     }
@@ -255,15 +248,15 @@
 
         // Listen for incoming events
         bf_botkit.log(
-            &#x27;** Serving webhook endpoints for the Microsoft Bot Framework at: &#x27; +
-                &#x27;http://&#x27; + bf_botkit.config.hostname + &#x27;:&#x27; +
-                bf_botkit.config.port + &#x27;/botframework/receive&#x27;);
-        webserver.post(&#x27;/botframework/receive&#x27;, bot.connector.listen());
+            '** Serving webhook endpoints for the Microsoft Bot Framework at: ' +
+                'http://' + bf_botkit.config.hostname + ':' +
+                bf_botkit.config.port + '/botframework/receive');
+        webserver.post('/botframework/receive', bot.connector.listen());
 
         // Receive events from chat connector
         bot.connector.onEvent(function(events, done) {
-            for (var i = 0; i &#x3c; events.length; i++) {
-                // Break out user &#x26; chann ...</pre></li>
+            for (var i = 0; i &lt; events.length; i++) {
+                // Break out user &amp; chann ...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 To connect your bot to the Bot Framework follow the step by step guide outlined in [Getting Started](#getting-started).
@@ -271,7 +264,7 @@ To connect your bot to the Bot Framework follow the step by step guide outlined 
 Here is the complete code for a basic Bot Framework bot:
 
 ```javascript
-var Botkit = require(&#x27;botkit&#x27;);
+var Botkit = require('botkit');
 var controller = Botkit.<span class="apidocCodeKeywordSpan">botframeworkbot</span>({
 });
 
@@ -317,13 +310,13 @@ var bot = controller.spawn({
         };
 
         bot.send = function(message, cb) {
-            console.log(&#x27;BOT:&#x27;, message.text);
+            console.log('BOT:', message.text);
         };
 
         bot.reply = function(src, resp, cb) {
             var msg = {};
 
-            if (typeof(resp) == &#x27;string&#x27;) {
+            if (typeof(resp) == 'string') {
                 msg.text = resp;
             } else {
                 msg = resp;
@@ -335,14 +328,14 @@ var bot = controller.spawn({
         };
 
         bot.findConversation = function(message, cb) {
-            botkit.debug(&#x27;CUSTOM FIND CONVO&#x27;, message.user, message.channel);
-            for (var t = 0; t &#x3c; botkit.tasks.length; t++) {
-                for (var c = 0; c &#x3c; botkit.tasks[t].convos.length; c++) {
+            botkit.debug('CUSTOM FIND CONVO', message.user, message.channel);
+            for (var t = 0; t &lt; botkit.tasks.length; t++) {
+                for (var c = 0; c &lt; botkit.tasks[t].convos.length; c++) {
                     if (
-                        botkit.tasks[t].convos[c].isActive() &#x26;&#x26;
+                        botkit.tasks[t].convos[c].isActive() &amp;&amp;
                         botkit.tasks[t].convos[c].source_message.user == message.user
                     ) {
-                        botkit.debug(&#x27;FOUND EXISTING CONVO!&#x27;);
+                        botkit.debug('FOUND EXISTING CONVO!');
                         cb(botkit.tasks[t].convos[c]);
                         return;
                     }
@@ -360,11 +353,11 @@ var bot = controller.spawn({
 
         text_botkit.startTicking();
         var rl = readline.createInterface({ input: process.stdin, output: process.stdout, terminal: false });
-        rl.on(&#x27;line&#x27;, function(line) {
+        rl.on('line', function(line) {
             var message = {
                 text: line,
-                user: &#x27;user&#x27;,
-                channel: &#x27;text&#x27;,
+                user: 'user',
+                channel: 'text',
                 timestamp: Date.now()
             };
             text_botkit.receiveMessage(bot, message);
@@ -374,12 +367,12 @@ var bot = controller.spawn({
     return text_botkit;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    -&#x3e; http://howdy.ai/botkit
+    -&gt; http://howdy.ai/botkit
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-var Botkit = require(&#x27;./lib/Botkit.js&#x27;);
-var os = require(&#x27;os&#x27;);
+var Botkit = require('./lib/Botkit.js');
+var os = require('os');
 
 var controller = Botkit.<span class="apidocCodeKeywordSpan">consolebot</span>({
     debug: false,
@@ -387,7 +380,7 @@ var controller = Botkit.<span class="apidocCodeKeywordSpan">consolebot</span>({
 
 var bot = controller.spawn();
 
-controller.hears([&#x27;hello&#x27;, &#x27;hi&#x27;], &#x27;message_received&#x27;, function(bot, message) {
+controller.hears(['hello', 'hi'], 'message_received', function(bot, message) {
 ...</pre></li>
     </ul>
 
@@ -452,7 +445,7 @@ controller.hears([&#x27;hello&#x27;, &#x27;hi&#x27;], &#x27;message_received&#x2
         this.threads = {};
         this.thread = null;
 
-        this.status = &#x27;new&#x27;;
+        this.status = 'new';
         this.task = task;
         this.source_message = message;
         this.handler = null;
@@ -473,7 +466,7 @@ controller.hears([&#x27;hello&#x27;, &#x27;hi&#x27;], &#x27;message_received&#x2
                 if (response.text) {
                     response.text = response.text.trim();
                 } else {
-                    response.text = &#x27;&#x27;;
+                    response.text = '';
                 }
 
                 if (that.capture_options.key != undefined) {
@@ -482,12 +475,12 @@ controller.hears([&#x27;hello&#x27;, &#x27;hi&#x27;], &#x27;message_received&#x2
 
                 // capture the question that was asked
                 // if text is an array, get 1st
-                if (typeof(that.sent[that.sent.length - 1].text) == &#x27;string&#x27;) {
+                if (typeof(that.sent[that.sent.length - 1].text) == 'string') {
                     response.question = that.sent[that.sent.length - 1].text;
                 } else if (Array.isArray(that.sent[that.sent.length - 1].text)) {
                     response.question = that.sent[that.sent.length - 1].text[0];
                 } else {
-                    response.question = &#x27;&#x27;;
+                    response.question = '';
                 }
 
                 if (that.capture_options.multiple) {
@@ -509,14 +502,14 @@ controller.hears([&#x27;hello&#x27;, &#x27;hi&#x27;], &#x27;message_received&#x2
             that = this;
             this.lastActive = new Date();
             this.transcript.push(message);
-            botkit.debug(&#x27;HANDLING MESSAGE IN CONVO&#x27;, message);
+            botkit.debug('HANDLING MESSAGE IN CONVO', message);
             // do other stuff like call custom callbacks
             if (this.handler) {
                 this.capture(message, function(message) {
                     // if the handler is a normal function, just execute it!
                     // NOTE: anyone who passes in their own handler has to call
                     // convo.next() to continue after completing whatever it is they want to do.
-                    if (typeof(that.handler) == &#x27;function&#x27;) {
+                    if (typeof(that.handler) == 'function') {
                         that.handler(message, that);
                     } else {
                         // handle might be a mapping of keyword to callback.
@@ -536,26 +529,26 @@ controller.hears([&#x27;hello&#x27;, &#x27;hi&#x27;], &#x27;message_received&#x2
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Facebookbot(configuration) {
 
-    var api_host = configuration.api_host || &#x27;graph.facebook.com&#x27;;
+    var api_host = configuration.api_host || 'graph.facebook.com';
 
     // Create a core botkit bot
     var facebook_botkit = Botkit(configuration || {});
 
     if (facebook_botkit.config.require_delivery) {
 
-        facebook_botkit.on(&#x27;message_delivered&#x27;, function(bot, message) {
+        facebook_botkit.on('message_delivered', function(bot, message) {
 
             // get list of mids in this message
-            for (var m = 0; m &#x3c; message.delivery.mids.length; m++) {
+            for (var m = 0; m &lt; message.delivery.mids.length; m++) {
                 var mid = message.delivery.mids[m];
 
                 // loop through all active conversations this bot is having
                 // and mark messages in conversations as delivered = true
                 bot.findConversation(message, function(convo) {
                     if (convo) {
-                        for (var s = 0; s &#x3c; convo.sent.length; s++) {
-                            if (convo.sent[s].sent_timestamp &#x3c;= message.delivery.watermark ||
-                                (convo.sent[s].api_response &#x26;&#x26; convo.sent[s].api_response.mid == mid)) {
+                        for (var s = 0; s &lt; convo.sent.length; s++) {
+                            if (convo.sent[s].sent_timestamp &lt;= message.delivery.watermark ||
+                                (convo.sent[s].api_response &amp;&amp; convo.sent[s].api_response.mid == mid)) {
                                 convo.sent[s].delivered = true;
                             }
                         }
@@ -572,7 +565,7 @@ controller.hears([&#x27;hello&#x27;, &#x27;hi&#x27;], &#x27;message_received&#x2
     facebook_botkit.defineBot(function(botkit, config) {
 
         var bot = {
-            type: &#x27;fb&#x27;,
+            type: 'fb',
             botkit: botkit,
             config: config || {},
             utterances: botkit.utterances,
@@ -594,7 +587,7 @@ controller.hears([&#x27;hello&#x27;, &#x27;hi&#x27;], &#x27;message_received&#x2
                 message: message.sender_action ? undefined : {}
             };
 
-            if (typeof(message.channel) == &#x27;string&#x27; &#x26;&#x26; message.channel.match(/\+\d+\(\d\d\d\)\d\d\d\-\d\d\d\d/)) {
+            if (typeof(message.channel) == 'string' &amp;&amp; message.channel.match(/\+\d+\(\d\d\d\)\d\d\d\-\d\d\d\d/)) {
                 facebook_message.recipient.phone_number = message.channel;
             } else {
                 facebook_message.recipient.id = message.channel;
@@ -617,8 +610,8 @@ controller.hears([&#x27;hello&#x27;, &#x27;hi&#x27;], &#x27;message_received&#x2
 
                     // sanitize the length of the title to maximum of 20 chars
                     var titleLimit = function(title) {
-                        if (title.length &#x3e; 20) {
-                            var newTitle = title.substring(0, 16) + &#x27;...&#x27;;
+                        if (title.length &gt; 20) {
+                            var newTitle = title.substring(0, 16) + '...';
                             return newTitle;
                         } else {
                             return title;
@@ -627,16 +620,16 @@ controller.hears([&#x27;hello&#x27;, &#x27;hi&#x27;], &#x27;message_received&#x2
 
                     facebook_message.message.quick_replies = message.quick_replies.map(function(item) {
                         var quick_reply = {};
-                        if (item.content_type === &#x27;text&#x27; || !item.content_type) {
+                        if (item.content_type === 'text' || !item.content_type) {
                             quick_reply = {
-                                content_type: &#x27;text&#x27;,
+                                content_type: 'text',
                                 title: titleLimit(item.title),
                                 payload: item.payload,
                                 image_url: item.image_url,
                             };
-                        } else if (item.content_type === &#x27;location&#x27;) {
+                        } else if (item.content_type === 'location') {
                             quick_reply = {
-                                content_type: &#x27;location&#x27;
+                                content_type: 'location'
                             };
                         } else {
                             // Future quick replies types
@@ -647,13 +640,13 @@ controller.hears([&#x27;hello&#x27;, &#x27;hi&#x27;], &#x27;message_received&#x2
 
 To connect your bot to Facebook, [follow the instructions here](https://developers.facebook.com/docs/messenger-platform/implementation
 ). You will need to collect your `page token` as well as a `verify token` that you define yourself and configure inside Facebook
-&#x27;s app settings. A step by step guide [can be found here](#getting-started). Since you must *already be running* your Botkit
- app to configure your Facebook app, there is a bit of back-and-forth. It&#x27;s ok! You can do it.
+'s app settings. A step by step guide [can be found here](#getting-started). Since you must *already be running* your Botkit
+ app to configure your Facebook app, there is a bit of back-and-forth. It's ok! You can do it.
 
 Here is the complete code for a basic Facebook bot:
 
 ```javascript
-var Botkit = require(&#x27;botkit&#x27;);
+var Botkit = require('botkit');
 var controller = Botkit.<span class="apidocCodeKeywordSpan">facebookbot</span>({
         access_token: process.env.access_token,
         verify_token: process.env.verify_token,
@@ -678,7 +671,7 @@ var bot = controller.spawn({
     // Create a core botkit bot
     var slack_botkit = Botkit(configuration || {});
 
-    // Set some default configurations unless they&#x27;ve already been set.
+    // Set some default configurations unless they've already been set.
 
     // Should the RTM connections ingest received messages
     // Developers using the new Events API will set this to false
@@ -692,18 +685,18 @@ var bot = controller.spawn({
 
     // customize the bot definition, which will be used when new connections
     // spawn!
-    slack_botkit.defineBot(require(__dirname + &#x27;/Slackbot_worker.js&#x27;));
+    slack_botkit.defineBot(require(__dirname + '/Slackbot_worker.js'));
 
     // Middleware to track spawned bots and connect existing RTM bots to incoming webhooks
     slack_botkit.middleware.spawn.use(function(worker, next) {
 
-        // lets first check and make sure we don&#x27;t already have a bot
+        // lets first check and make sure we don't already have a bot
         // for this team! If we already have an RTM connection, copy it
         // into the new bot so it can be used for replies.
 
         var existing_bot = null;
         if (worker.config.id) {
-            for (var b = 0; b &#x3c; spawned_bots.length; b++) {
+            for (var b = 0; b &lt; spawned_bots.length; b++) {
                 if (spawned_bots[b].config.id) {
                     if (spawned_bots[b].config.id == worker.config.id) {
                         // WAIT! We already have a bot spawned here.
@@ -714,7 +707,7 @@ var bot = controller.spawn({
             }
         }
 
-        if (!existing_bot &#x26;&#x26; worker.config.id) {
+        if (!existing_bot &amp;&amp; worker.config.id) {
             spawned_bots.push(worker);
         } else if (existing_bot) {
             if (existing_bot.rtm) {
@@ -733,15 +726,15 @@ var bot = controller.spawn({
     // https://api.slack.com/docs/oauth-scopes
     slack_botkit.configureSlackApp = function(slack_app_config, cb) {
 
-        slack_botkit.log(&#x27;** Configuring app as a Slack App!&#x27;);
+        slack_botkit.log('** Configuring app as a Slack App!');
         if (!slack_app_config || !slack_app_config.clientId ||
             !slack_app_config.clientSecret || !slack_app_config.scopes) {
-            throw new Error(&#x27;Missing oauth config details&#x27;);
+            throw new Error('Missing oauth config details');
         } else {
             slack_botkit.config.clientId = slack_app_config.clientId;
             slack_botkit.config.clientSecret = slack_app_config.clientSecret;
             if (slack_app_config.redirectUri) slack_botkit.config.redirectUri = slack_app_config.redirectUri;
-            if (typeof(slack_app_config.scopes) == &#x27;string&#x27;) {
+            if (typeof(slack_app_config.scopes) == 'string') {
                 slack_botkit.config.scopes = slack_app_config.scopes.split(/\,/);
             } else {
                 slack_botkit.config.scopes = slack_app_config.scopes;
@@ -756,14 +749,14 @@ var bot = controller.spawn({
     // set up a web route that is a landing page
     slack_botkit.createHomepageEndpoint = function(webserver) {
 
-        slack_botkit.log(&#x27;** Serving app landing page at : http://&#x27; +
-            slack_botkit.config.hostname + &#x27;:&#x27; + slack_botkit.config.port + &#x27;/&#x27;);
+        slack_botkit.log('** Serving app landing page at : http://' +
+            slack_botkit.config.hostname + ':' + slack_botkit.config.port + '/');
 
         // FIX THIS!!!
         // this is obvs not right.
-        webserver.get(&#x27;/&#x27;, function(req, res) {
+        webserver.get('/', function(req, res) {
 
-            res.send(&#x27;Howdy!&#x27;);
+            res.send('Howdy!');
 
         });
 
@@ -774,25 +767,25 @@ var bot = controller.spawn({
 
     // adds the webhook authentication middleware module to the webserver
     function secureWebhookEndpoints() {
-        var authenticationMiddleware = require(__dirname + &#x27;/middleware/slack_authentication.js&#x27;);
+        var authenticationMiddleware = require(__dirname + '/middleware/slack_authentication.js');
         // convert a variable argument list to an array, drop the webserver argument
         var tokens = Array.prototype.slice.call(arguments);
         var webserver = tokens.shift();
 
         slack_botkit.log(
-            &#x27;** Requiring token authentication for webhook endpoints for Slash commands &#x27; +
-            &#x27;and outgoing webhooks; configured &#x27; + tokens.length + &#x27; token(s)&#x27;
+            '** Requiring token authentication for webhook endpoints for Slash commands ' +
+            'and outgoing webhooks; configured ' + tokens.length + ' token(s)'
         );
 
         webserver.use(authent ...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 Then pass the returned storage when creating your Botkit controller. Botkit will do the rest.
 
-Make sure everything you store has an `id` property, that&#x27;s what you&#x27;ll use to look it up later.
+Make sure everything you store has an `id` property, that's what you'll use to look it up later.
 
 ```javascript
-var Botkit = require(&#x27;botkit&#x27;),
-    mongoStorage = require(&#x27;botkit-storage-mongo&#x27;)({mongoUri: &#x27;...&#x27;}),
+var Botkit = require('botkit'),
+    mongoStorage = require('botkit-storage-mongo')({mongoUri: '...'}),
     controller = Botkit.<span class="apidocCodeKeywordSpan">slackbot</span>({
         storage: mongoStorage
     });
@@ -800,7 +793,7 @@ var Botkit = require(&#x27;botkit&#x27;),
 
 ```javascript
 // then you can use the Botkit storage api, make sure you have an id property
-var beans = {id: &#x27;cool&#x27;, beans: [&#x27;pinto&#x27;, &#x27;garbanzo&#x27;]};
+var beans = {id: 'cool', beans: ['pinto', 'garbanzo']};
 ...</pre></li>
     </ul>
 
@@ -819,9 +812,9 @@ var beans = {id: &#x27;cool&#x27;, beans: [&#x27;pinto&#x27;, &#x27;garbanzo&#x2
     var controller = Botkit(configuration || {});
 
     if (!controller.config.ciscospark_access_token) {
-        throw new Error(&#x27;ciscospark_access_token required to create controller&#x27;);
+        throw new Error('ciscospark_access_token required to create controller');
     } else {
-        controller.api = require(&#x27;ciscospark&#x27;).init({
+        controller.api = require('ciscospark').init({
             credentials: {
                 authorization: {
                     access_token: controller.config.ciscospark_access_token
@@ -830,11 +823,11 @@ var beans = {id: &#x27;cool&#x27;, beans: [&#x27;pinto&#x27;, &#x27;garbanzo&#x2
         });
 
         if (!controller.api) {
-            throw new Error(&#x27;Could not create Cisco Spark API&#x27;);
+            throw new Error('Could not create Cisco Spark API');
         }
 
-        controller.api.people.get(&#x27;me&#x27;).then(function(identity) {
-            console.log(&#x27;Cisco Spark: My identity is&#x27;, identity);
+        controller.api.people.get('me').then(function(identity) {
+            console.log('Cisco Spark: My identity is', identity);
             controller.identity = identity;
         }).catch(function(err) {
             throw new Error(err);
@@ -842,34 +835,34 @@ var beans = {id: &#x27;cool&#x27;, beans: [&#x27;pinto&#x27;, &#x27;garbanzo&#x2
     }
 
     if (!controller.config.public_address) {
-        throw new Error(&#x27;public_address parameter required to receive webhooks&#x27;);
+        throw new Error('public_address parameter required to receive webhooks');
     } else {
 
         var endpoint = url.parse(controller.config.public_address);
         if (!endpoint.hostname) {
-            throw new Error(&#x27;Could not determine hostname of public address: &#x27; + controller.config.public_address);
-        } else if (endpoint.protocol != &#x27;https:&#x27;) {
-            throw new Error(&#x27;Please specify an SSL-enabled url for your public address: &#x27; + controller.config.public_address);
+            throw new Error('Could not determine hostname of public address: ' + controller.config.public_address);
+        } else if (endpoint.protocol != 'https:') {
+            throw new Error('Please specify an SSL-enabled url for your public address: ' + controller.config.public_address);
         } else {
-            controller.config.public_address = endpoint.hostname + (endpoint.port ? &#x27;:&#x27; + endpoint.port : &#x27;&#x27;);
+            controller.config.public_address = endpoint.hostname + (endpoint.port ? ':' + endpoint.port : '');
         }
 
     }
 
     if (!controller.config.secret) {
-        console.log(&#x27;WARNING: No secret specified. Source of incoming webhooks will not be validated. https://developer.ciscospark
-.com/webhooks-explained.html#auth&#x27;);
-        // throw new Error(&#x27;secret parameter required to secure webhooks&#x27;);
+        console.log('WARNING: No secret specified. Source of incoming webhooks will not be validated. https://developer.ciscospark
+.com/webhooks-explained.html#auth');
+        // throw new Error('secret parameter required to secure webhooks');
     }
 
 
     controller.resetWebhookSubscriptions = function() {
         controller.api.webhooks.list().then(function(list) {
-            for (var i = 0; i &#x3c; list.items.length; i++) {
+            for (var i = 0; i &lt; list.items.length; i++) {
                 controller.api.webhooks.remove(list.items[i]).then(function(res) {
-                    console.log(&#x27;Removed subscription: &#x27; + list.items[i].name);
+                    console.log('Removed subscription: ' + list.items[i].name);
                 }).catch(function(err) {
-                    console.log(&#x27;Error removing subscription:&#x27;, err);
+                    console.log('Error removing subscription:', err);
                 });
             }
         });
@@ -879,12 +872,12 @@ var beans = {id: &#x27;cool&#x27;, beans: [&#x27;pinto&#x27;, &#x27;garbanzo&#x2
     controller.createWebhookEndpoints = function(webserver, bot, cb) {
 
 
-        var webhook_name = controller.config.webhook_name || &#x27;Botkit Firehose&#x27;;
+        var webhook_name = controller.config.webhook_name || 'Botkit Firehose';
 
         controller.log(
-            &#x27;** Serving webhook endpoints for Cisco Spark Platform at: &#x27; +
-            &#x27;http://&#x27; + controller.config.hostname + &#x27;:&#x27; + controller.config.port + &#x27;/ciscospark/receive&#x27;);
-        webserver.post(&#x27;/ciscospark/receive&#x27;, function(req, res) {
+            '** Serving webhook endpoints for Cisco Spark Platform at: ' +
+            'http://' + controller.config.hostname + ':' + controller.config.port + '/ciscospark/receive');
+        webserver.post('/ciscospark/receive', function(req, res) {
 
             controller.handleWebhookPayload(req, res, bot);
 
@@ -894,29 +887,29 @@ var beans = {id: &#x27;cool&#x27;, beans: [&#x27;pinto&#x27;, &#x27;garbanzo&#x2
         var list = controller.api.webhooks.list().then(function(list) {
             var hook_id = null;
 
-            for (var i = 0; i &#x3c; list.items.length; i++) {
+            for (var i = 0; i &lt; list.items.length; i++) {
                 if (list.items[i].name == webhook_name) {
                     hook_id = list.items[i].id;
                 }
             }
 
-            var hook_url = &#x27;https://&#x27; + controller.config.public_address + &#x27;/ciscospark/receive&#x27;;
+            var hook_url = 'https://' + controller.config.public_address + '/ciscospark/receive';
 
-            console.log(&#x27;Cisco Spark: incoming webhook url is &#x27;, hook_url);
+            console.log('Cisco Spark: incoming webhook url is ', hook_url);
 
             if (hook_id) {
                 controller.api.webhooks.update({
                     id: hook_id,
-                    resource: &#x27;all&#x27;,
+                    resource: 'all',
                     targetUrl: hook_url,
-                    event: &#x27;all&#x27;,
+                    event: 'all',
                     secret: controller.config.secret,
                     name: webhook_name,
                 }).then(function(res) {
-                    console.log(&#x27;Cisco Spark: SUCCESSFULLY UPDATED CISCO SPARK WEBHOOKS&#x27;);
+                    console.log('Cisco Spark: SUCCESSFULLY UPDATED CISCO SPARK WEBHOOKS');
                     if (cb) cb();
                 }).catch(function(err) {
-                    console.log(&#x27;FAILED TO REGISTER WEBHOOK&#x27;, err);
+                    console.log('FAILED TO REGISTER WEBHOOK', err);
                     throw new Error(err);
                 });
 
@@ -928,7 +921,7 @@ This will configure your bot to respond only to messages from members of the spe
 The full code for a simple Cisco Spark bot is below:
 
 ```
-var Botkit = require(&#x27;./lib/Botkit.js&#x27;);
+var Botkit = require('./lib/Botkit.js');
 
 var controller = Botkit.<span class="apidocCodeKeywordSpan">sparkbot</span>({
     debug: true,
@@ -958,7 +951,7 @@ var controller = Botkit.<span class="apidocCodeKeywordSpan">sparkbot</span>({
     // spawn!
     twilio_botkit.defineBot(function(botkit, config) {
         var bot = {
-            type: &#x27;twilioipm&#x27;,
+            type: 'twilioipm',
             botkit: botkit,
             config: config || {},
             utterances: botkit.utterances,
@@ -969,9 +962,9 @@ var controller = Botkit.<span class="apidocCodeKeywordSpan">sparkbot</span>({
         };
 
         bot.send = function(message, cb) {
-            botkit.debug(&#x27;SEND &#x27;, message);
+            botkit.debug('SEND ', message);
 
-            if (bot.identity === null || bot.identity === &#x27;&#x27;) {
+            if (bot.identity === null || bot.identity === '') {
                 bot.api.channels(message.channel).messages.create({
                     body: message.text,
                 }).then(function(response) {
@@ -994,7 +987,7 @@ var controller = Botkit.<span class="apidocCodeKeywordSpan">sparkbot</span>({
         bot.reply = function(src, resp, cb) {
             var msg = {};
 
-            if (typeof(resp) == &#x27;string&#x27;) {
+            if (typeof(resp) == 'string') {
                 msg.text = resp;
             } else {
                 msg = resp;
@@ -1014,11 +1007,11 @@ var controller = Botkit.<span class="apidocCodeKeywordSpan">sparkbot</span>({
                     bot.api.channels(chan.sid).members.create({
                         identity: bot.identity
                     }).then(function(response) {
-                        botkit.debug(&#x27;added &#x27; +
-                          bot.identity + &#x27; as a member of the &#x27; + chan.friendly_name);
+                        botkit.debug('added ' +
+                          bot.identity + ' as a member of the ' + chan.friendly_name);
                     }).fail(function(error) {
-                        botkit.debug(&#x27;Couldn\&#x27;t join the channel: &#x27; +
-                            chan.friendly_name + &#x27;: &#x27; + error);
+                        botkit.debug('Couldn\'t join the channel: ' +
+                            chan.friendly_name + ': ' + error);
                     });
                 });
             } else if (bot.identity) {
@@ -1031,20 +1024,20 @@ var controller = Botkit.<span class="apidocCodeKeywordSpan">sparkbot</span>({
 
                 async.each(full_channel_list.channels, function(chan, next) {
                     bot.api.channels(chan.sid).members.list().then(function(members) {
-                        for (var x = 0; x &#x3c; members.members.length; x++) {
+                        for (var x = 0; x &lt; members.members.length; x++) {
                             if (members.members[x].identity == bot.identity) {
                                 bot.channels.channels.push(chan);
                             }
                         }
                         next();
                     }).fail(function(error) {
-                        botkit.log(&#x27;Error loading channel member list: &#x27;, error);
+                        botkit.log('Error loading channel member list: ', error);
                         next();
                     });
                 });
             }
         }).fail(function(error) {
-            botkit.log(&#x27;Error loading channel list: &#x27; + error);
+            botkit.log('Error loading channel list: ' + error);
             // fails if no channels exist
             // set the channels to empty
             bot.channels = { channels: [] };
@@ -1053,7 +1046,7 @@ var controller = Botkit.<span class="apidocCodeKeywordSpan">sparkbot</span>({
       };
 
         bot.configureBotIdentity = function() {
-            if (bot.identity !== null || bot.identity !== &#x27;&#x27;) {
+            if (bot.identity !== null || bot.identity !== '') {
                 var userRespIter = 0;
                 var existingIdentity = null;
 
@@ -1066,13 +1059,13 @@ var controller = Botkit.<span class="apidocCodeKeywordSpan">sparkbot</span>({
 
 To connect your bot to Twilio, [follow the instructions here](https://www.twilio.com/user/account/ip-messaging/getting-started).
 You will need to collect 5 separate pieces of your API credentials. A step by step guide [can be found here](#getting-started).
-Since you must *already be running* your Botkit app to fully configure your Twilio app, there is a bit of back-and-forth. It&#x27
+Since you must *already be running* your Botkit app to fully configure your Twilio app, there is a bit of back-and-forth. It'
 ;s ok! You can do it.
 
 Here is the complete code for a basic Twilio bot:
 
 ```javascript
-var Botkit = require(&#x27;botkit&#x27;);
+var Botkit = require('botkit');
 var controller = Botkit.<span class="apidocCodeKeywordSpan">twilioipmbot</span>({
 debug: false
 })
@@ -1093,3 +1086,4 @@ TWILIO_API_KEY: process.env.TWILIO_API_KEY,
     ]
 </div>
 </div>
+</body></html>
